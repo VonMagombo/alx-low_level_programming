@@ -13,12 +13,12 @@ int main(void)
 		putchar(lower);
 		lower++;
 	}
-	while (upper < 97)
+	while (upper <= 90)
 	{
 		putchar(upper);
 		upper++;
 	}
-	putchar("\n");
+	putchar('\n');
 	return (0);
 }
 
