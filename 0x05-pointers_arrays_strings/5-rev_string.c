@@ -3,18 +3,18 @@
 #include <string.h>
 /**
  *rev_string - reverses a string
- *@s - input
+ *@str - input
  * Return: void
  */
-void rev_string(char *s)
+void rev_string(char *str)
 {	
 	int i, len, temp;
 	
-	len = strlen(s);
+	len = strlen(str);
         for(i = 0; i < len/2; i++)
         {
-		temp = s[i];
-                s[i] = s[len - i - 1];
+		temp = str[i];
+                str[i] = str[len - i - 1];
                 s[len - i - 1] = temp;
 	}
 }
