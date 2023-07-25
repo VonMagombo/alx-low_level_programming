@@ -3,18 +3,24 @@
 #include <string.h>
 /**
  * print_rev - prints a string in reverse
+ * @s: input
  * Return: void.
  */
 void print_rev(char *s)
 {
-	int i, len, temp;
+	int i; 
+	int len = 0;
 
-	len = strlen(s);
-	for(i = 0; i < len/2; i++)
+	while (*s != '\0')
 	{
-		temp = s[i];
-		s[i] = s[len - i - 1];
-		s[len - i - 1] = temp;
+		len++;
+		s++;
+	}
+	s--;
+	for(i = len; i > 0; i--)
+	{
+		_putchar(*s);
+		s--;
 	}
 	_putchar('\n');
 }
