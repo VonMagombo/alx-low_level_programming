@@ -1,4 +1,4 @@
-#include "main.h"i
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 /**
@@ -16,9 +16,9 @@ char *_strdup(char *str)
 		return NULL;
 	}
 	i = 0;
-	while(str != '\0')
+	while(str[i] != '\0')
 	{
-		i++
+		i++;
 	}
 	dup = malloc(sizeof(char) * (i+1));
 	if (dup == NULL)
