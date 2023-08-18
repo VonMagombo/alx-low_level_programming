@@ -8,48 +8,43 @@
 void print_all(const char * const format, ...) 
 {
 	va_list list;
-    	const char *fmt = format;
-    	int char_arg;
-    	int int_arg;
-    	double float_arg;
-    	char *str_arg;
+	const char *fmt = format;
+	char *str;
+    	int printed = 0;
 
 	va_start(list, format);
     	while (*fmt != '\0') 
 	{
-        	if (*fmt == 'c')
+        	switch (*fmt) 
 		{
-            		char_arg = va_arg(list, int);
-            		printf("%c", char_arg);
+            		case 'c':
+                		printf("%c", va_arg(list, int));
+               			printed = 1;
+                		break;
+           		case 'i':
+                		printf("%d", va_arg(list, int));
+                		printed = 1;
+                		break;
+            		case 'f':
+                		printf("%f", va_arg(list, double));
+                		printed = 1;
+                		break;
+            		case 's':
+				str = va_arg(list, char *);
+              	 		if (str != NULL) 
+                    			printf("%s", str);
+				else 
+                    			printf("(nil)");
+                		printed = 1;
+                		break;
         	}
-		else if (*fmt == 'i') 
+        	if (*(fmt + 1) != '\0' && printed) 
 		{
-            		int_arg = va_arg(list, int);
-            		printf("%d", int_arg);
+			printf(", ");
         	}
-		else if (*fmt == 'f') 
-		{
-			float_arg = va_arg(list, double);
-            		printf("%f", float_arg);
-        	}
-		else if (*fmt == 's') 
-		{
-			str_arg = va_arg(list, char*);
-            		if (str_arg == NULL) 
-			{
-                		printf("(nil)");
-           		} 
-			else 
-			{
-                		printf("%s", str_arg);
-            		}
-        	}
-        	if ((*(fmt + 1) != '\0') && (*fmt == 'c' || *fmt == 'i' || *fmt == 'f' || *fmt == 's')) 
-		{
-        		printf(", ");
-        	} 
-       		fmt++;
+        	fmt++;
+        	printed = 0;
     	}
 	printf("\n");
-    	va_end(list);
+	va_end(list);
 }
