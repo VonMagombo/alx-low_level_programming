@@ -8,14 +8,13 @@
 void print_all(const char * const format, ...) 
 {
 	va_list list;
-	const char *fmt = format;
 	char *str;
-    	int printed = 0;
+    	int printed, i = 0;
 
 	va_start(list, format);
-    	while (*fmt != '\0') 
+    	while (format[i] != '\0') 
 	{
-        	switch (*fmt) 
+        	switch (format[i]) 
 		{
             		case 'c':
                 		printf("%c", va_arg(list, int));
@@ -37,12 +36,15 @@ void print_all(const char * const format, ...)
                     			printf("(nil)");
                 		printed = 1;
                 		break;
+			default:
+				i++;
+				continue;
         	}
-        	if (*(fmt + 1) != '\0' && printed) 
+        	if ((format[i] + 1) != '\0' && printed) 
 		{
 			printf(", ");
         	}
-        	fmt++;
+        	i++;
         	printed = 0;
     	}
 	printf("\n");
