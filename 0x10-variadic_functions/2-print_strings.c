@@ -10,14 +10,14 @@
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	var_list = word;
+	va_list word;
 	unsigned int i;
 	char *str;
 
-	var_start(word, n)
-	for (i = 0; i < n; n++)
+	va_start(word, n);
+	for (i = 0; i < n; i++)
 	{
-		str = va_arg(word, char*);
+		str = va_arg(word, char *);
 		if (str != NULL)
 		{
 			printf("%s", str);

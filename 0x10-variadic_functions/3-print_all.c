@@ -8,13 +8,13 @@
 void print_all(const char * const format, ...) 
 {
 	va_list list;
-    	va_start(list, format);
     	const char *fmt = format;
     	int char_arg;
     	int int_arg;
     	double float_arg;
     	char *str_arg;
 
+	va_start(list, format);
     	while (*fmt != '\0') 
 	{
         	if (*fmt == 'c')
@@ -47,9 +47,7 @@ void print_all(const char * const format, ...)
         	if ((*(fmt + 1) != '\0') && (*fmt == 'c' || *fmt == 'i' || *fmt == 'f' || *fmt == 's')) 
 		{
         		printf(", ");
-        	}
-        
-        
+        	} 
        		fmt++;
     	}
 	printf("\n");
