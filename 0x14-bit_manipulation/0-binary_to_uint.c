@@ -1,13 +1,14 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * binary_to_uint - converts a number to binary
  * @b: parameter
- * Return: number converted or 0 if there is no binary valuei.
+ * Return: number converted or 0 if there is no binary value.
  */
 unsigned int binary_to_uint(const char *b)
 {
 	int i= 0;
-	int usigned int result = 0;
+	unsigned int result = 0;
 
 	if (b == NULL)
         return (0);
